@@ -1,0 +1,11 @@
+{
+    "name": "qobo/qobo-robo",
+    "description": "QoboRobo",
+    "license": "MIT",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Qobo\\Robo\\": "src"
+        }
+    }
+}
