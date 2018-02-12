@@ -4,7 +4,7 @@ namespace Qobo\Robo;
 
 use Robo\Result;
 use Robo\Exception\TaskException;
-use Qobo\Utility\Template;
+use Qobo\Robo\Utility\Template;
 
 /**
  * Qobo base command task.
