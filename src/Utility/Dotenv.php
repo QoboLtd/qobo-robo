@@ -3,9 +3,7 @@
 /**
  * Dotenv utilities collection class
  */
-namespace Qobo\Utility;
-
-use Qobo\Utility\File;
+namespace Qobo\Robo\Utility;
 
 class Dotenv
 {

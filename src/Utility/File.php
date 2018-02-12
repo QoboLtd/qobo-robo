@@ -3,7 +3,7 @@
 /**
  * File utilities collection class
  */
-namespace Qobo\Utility;
+namespace Qobo\Robo\Utility;
 
 class File
 {
