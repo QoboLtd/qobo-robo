@@ -2,8 +2,8 @@
 
 namespace Qobo\Robo\Command\Project;
 
-use \Qobo\Robo\AbstractCommand;
-use \Qobo\Robo\Formatter\RowsOfFields;
+use Qobo\Robo\AbstractCommand;
+use Qobo\Robo\Formatter\RowsOfFields;
 
 class Changelog extends AbstractCommand
 {

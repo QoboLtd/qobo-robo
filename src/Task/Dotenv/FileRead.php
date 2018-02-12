@@ -3,8 +3,8 @@
 namespace Qobo\Robo\Task\Dotenv;
 
 use Robo\Result;
-use \Qobo\Utility\File;
-use \Qobo\Utility\Dotenv;
+use Qobo\Robo\Utility\File;
+use Qobo\Robo\Utility\Dotenv;
 
 /**
  * Read dotenv file

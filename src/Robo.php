@@ -2,7 +2,7 @@
 
 namespace Qobo\Robo;
 
-use \Robo\Robo as RoboRobo;
+use Robo\Robo as RoboRobo;
 
 /**
  * Extend Robo to overwrite run method and substitute our own Runner

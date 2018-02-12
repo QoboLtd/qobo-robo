@@ -2,7 +2,7 @@
 
 namespace Qobo\Robo;
 
-use \Robo\Runner as RoboRunner;
+use Robo\Runner as RoboRunner;
 
 /**
  * Robo Runner to allow custom error handler

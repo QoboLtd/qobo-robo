@@ -3,8 +3,8 @@
 namespace Qobo\Robo\Task\Template;
 
 use Robo\Result;
-use \Qobo\Utility\File;
-use \Qobo\Utility\Template;
+use Qobo\Robo\Utility\File;
+use Qobo\Robo\Utility\Template;
 
 /**
  * Parse template file

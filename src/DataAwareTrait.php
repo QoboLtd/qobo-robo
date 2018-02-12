@@ -2,7 +2,7 @@
 
 namespace Qobo\Robo;
 
-use \Robo\Result;
+use Robo\Result;
 
 /**
  * Data aware trait

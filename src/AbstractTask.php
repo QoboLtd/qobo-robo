@@ -2,9 +2,9 @@
 
 namespace Qobo\Robo;
 
-use \Robo\Common\ConfigAwareTrait;
-use \Robo\Task\BaseTask;
-use \Robo\Result;
+use Robo\Common\ConfigAwareTrait;
+use Robo\Task\BaseTask;
+use Robo\Result;
 
 /**
  * Qobo base task.

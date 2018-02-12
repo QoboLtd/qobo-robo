@@ -2,9 +2,9 @@
 
 namespace Qobo\Robo;
 
-use \Robo\Config;
-use \Qobo\Robo\Robo;
-use \Robo\Runner as RoboRunner;
+use Robo\Config;
+use Qobo\Robo\Robo;
+use Robo\Runner as RoboRunner;
 
 /**
  * Qobo Robo App

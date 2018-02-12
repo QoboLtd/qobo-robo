@@ -7,7 +7,7 @@
  */
 namespace Qobo\Robo;
 
-use \Robo\Common\ConfigAwareTrait as configTrait;
+use Robo\Common\ConfigAwareTrait as configTrait;
 
 abstract class AbstractCommand extends \Robo\Tasks
 {

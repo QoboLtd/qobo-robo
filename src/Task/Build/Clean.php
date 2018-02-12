@@ -2,7 +2,7 @@
 
 namespace Qobo\Robo\Task\Build;
 
-use \Robo\Result;
+use Robo\Result;
 use Symfony\Component\Filesystem\Filesystem as Filesystem;
 
 class Clean extends Base

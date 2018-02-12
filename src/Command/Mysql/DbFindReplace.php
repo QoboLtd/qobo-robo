@@ -2,8 +2,8 @@
 
 namespace Qobo\Robo\Command\Mysql;
 
-use \Qobo\Robo\AbstractCommand;
-use \Qobo\Robo\Formatter\PropertyList;
+use Qobo\Robo\AbstractCommand;
+use Qobo\Robo\Formatter\PropertyList;
 
 class DbFindReplace extends AbstractCommand
 {

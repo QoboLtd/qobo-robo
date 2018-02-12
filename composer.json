@@ -2,7 +2,18 @@
     "name": "qobo/qobo-robo",
     "description": "QoboRobo",
     "license": "MIT",
-    "require": {},
+    "require": {
+        "consolidation/robo": "^1.1",
+        "qobo/search-replace-db": "~4.0",
+        "symfony/filesystem": "~2.7",
+        "phpunit/phpunit": "~5.3",
+        "squizlabs/php_codesniffer": "*",
+        "pdepend/pdepend": "*",
+        "phploc/phploc": "*",
+        "phpmd/phpmd": "*",
+        "sebastian/phpcpd": "*",
+        "sami/sami": "~3.2"
+    },
     "autoload": {
         "psr-4": {
             "Qobo\\Robo\\": "src"

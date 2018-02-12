@@ -2,7 +2,7 @@
 
 namespace Qobo\Robo\Command\Project;
 
-use \Qobo\Robo\AbstractCommand;
+use Qobo\Robo\AbstractCommand;
 
 class DotenvDelete extends AbstractCommand
 {

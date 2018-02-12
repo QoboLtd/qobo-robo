@@ -3,7 +3,7 @@
 namespace Qobo\Robo\Task\Mysql;
 
 use Robo\Result;
-use \Qobo\Utility\Template;
+use Qobo\Robo\Utility\Template;
 
 /**
  * Base Query Mysql class

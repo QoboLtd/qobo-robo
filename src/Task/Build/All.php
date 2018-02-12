@@ -2,7 +2,7 @@
 
 namespace Qobo\Robo\Task\Build;
 
-use \Robo\Result;
+use Robo\Result;
 
 class All extends Base
 {

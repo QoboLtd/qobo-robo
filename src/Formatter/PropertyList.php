@@ -2,8 +2,8 @@
 
 namespace Qobo\Robo\Formatter;
 
-use \Qobo\Utility\Hash;
-use \Consolidation\OutputFormatters\Options\FormatterOptions;
+use Qobo\Robo\Utility\Hash;
+use Consolidation\OutputFormatters\Options\FormatterOptions;
 
 class PropertyList extends \Consolidation\OutputFormatters\StructuredData\PropertyList
 {

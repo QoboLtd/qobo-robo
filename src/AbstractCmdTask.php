@@ -2,9 +2,9 @@
 
 namespace Qobo\Robo;
 
-use \Robo\Result;
-use \Robo\Exception\TaskException;
-use \Qobo\Utility\Template;
+use Robo\Result;
+use Robo\Exception\TaskException;
+use Qobo\Utility\Template;
 
 /**
  * Qobo base command task.
