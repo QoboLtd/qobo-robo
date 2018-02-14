@@ -11,7 +11,6 @@
  */
 namespace Qobo\Robo\Command\Build;
 
-
 class PhpMdCi extends \Qobo\Robo\AbstractCommand
 {
     /**

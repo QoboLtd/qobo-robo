@@ -35,71 +35,70 @@ class Chmod extends \Qobo\Robo\AbstractTask
      * {@inheritdoc}
      */
     protected $data = [
-		'path'  => [],
-		'file_mode' => '0664',
-		'dir_mode' => '0775',
-		'recursive'	=> false,
-	];
+        'path'  => [],
+        'file_mode' => '0664',
+        'dir_mode' => '0775',
+        'recursive' => false,
+    ];
 
-	/**
-	 * {@inheritdoc}
-	 */
-	protected $requiredData = [
-		'path',
-		'file_mode',
-		'dir_mode'
-	];
+    /**
+     * {@inheritdoc}
+     */
+    protected $requiredData = [
+        'path',
+        'file_mode',
+        'dir_mode'
+    ];
 
     /**
      * {@inheritdoc}
      */
     public function run()
-	{
-		if (!is_array($this->data['path'])) {
-			$this->data['path'] = [ $this->data['path'] ];
+    {
+        if (!is_array($this->data['path'])) {
+            $this->data['path'] = [ $this->data['path'] ];
         }
         foreach ($this->data['path'] as $path) {
-			$this->printInfo("Changing mode on {path} (dir: {dir_mode}, file: {file_mode})", ['path' => $path, 'dir_mode' => $this->data['dir_mode'], 'file_mode' => $this->data['file_mode']]);
-			$result = static::chmod($path, $this->data['file_mode'], $this->data['dir_mode'], $this->data['recursive']);
-		}
+            $this->printInfo("Changing mode on {path} (dir: {dir_mode}, file: {file_mode})", ['path' => $path, 'dir_mode' => $this->data['dir_mode'], 'file_mode' => $this->data['file_mode']]);
+            $result = static::chmod($path, $this->data['file_mode'], $this->data['dir_mode'], $this->data['recursive']);
+        }
 
-		if ($result) {
-	        return Result::success($this, "Successfully changed path's mode", $this->data);
-		}
+        if ($result) {
+            return Result::success($this, "Successfully changed path's mode", $this->data);
+        }
 
-		return Result::error($this, "Failed to change path's mode");
-	}
+        return Result::error($this, "Failed to change path's mode");
+    }
 
-	public static function chmod($path, $fileMode, $dirMode, $recursive)
+    public static function chmod($path, $fileMode, $dirMode, $recursive)
     {
         $fileMode = static::valueToOct($fileMode);
         $dirMode = static::valueToOct($dirMode);
 
-		$path = realpath($path);
+        $path = realpath($path);
 
-		try {
-
-			if (is_file($path)) {
+        try {
+            if (is_file($path)) {
                 chmod($path, $fileMode);
-				return true;
-			}
+                return true;
+            }
 
             chmod($path, $dirMode);
-		} catch (\Exception $e) {
-			return false;
-		}
+        } catch (\Exception $e) {
+            return false;
+        }
 
-		if (!$recursive) {
-			return true;
-		}
+        if (!$recursive) {
+            return true;
+        }
 
-		$paths = glob("$path/*");
-		foreach ($paths as $path) {
-			if (!static::chmod($path, $fileMode, $dirMode, true)) {
-				return false;
-			}
-		}
-		return true;
+        $paths = glob("$path/*");
+        foreach ($paths as $path) {
+            if (!static::chmod($path, $fileMode, $dirMode, true)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     protected static function valueToOct($value)

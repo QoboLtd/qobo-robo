@@ -51,7 +51,9 @@ class DotenvCreate extends AbstractCommand
 
         $data = $result->getData()['data'];
 
-        $lines = array_map(function ($k, $v) { return "$k=$v"; }, array_keys($data), $data);
+        $lines = array_map(function ($k, $v) {
+            return "$k=$v";
+        }, array_keys($data), $data);
 
         $result = $this->taskWriteToFile($envPath)
             ->lines($lines)
