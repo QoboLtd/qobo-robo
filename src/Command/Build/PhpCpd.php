@@ -11,7 +11,6 @@
  */
 namespace Qobo\Robo\Command\Build;
 
-
 class PhpCpd extends \Qobo\Robo\AbstractCommand
 {
     /**

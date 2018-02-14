@@ -11,7 +11,6 @@
  */
 namespace Qobo\Robo\Command\Build;
 
-
 class Sami extends \Qobo\Robo\AbstractCommand
 {
     /**

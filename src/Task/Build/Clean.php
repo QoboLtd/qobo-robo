@@ -48,7 +48,4 @@ class Clean extends Base
 
         return Result::success($this, "All cleaned up", ['data' => $dirs]);
     }
-
-
 }
-

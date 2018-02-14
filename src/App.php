@@ -123,7 +123,6 @@ class App
         // find all command files and commands
         $commands = [];
         foreach (glob($cmdPath) as $file) {
-
            // match only php files, extract group dir name
             if (!preg_match($cmdPattern, $file, $matches)) {
                 continue;
@@ -131,7 +130,7 @@ class App
 
             // construct a class name from our namespace, optional
             // command group subdir and actual class file name
-            $className = __NAMESPACE__ . "\\" . str_replace("/","\\", $this->data['cmd_path']) . $matches[1];
+            $className = __NAMESPACE__ . "\\" . str_replace("/", "\\", $this->data['cmd_path']) . $matches[1];
             $className .= ($this->data['grp_cmd']) ? "\\" . $matches[2] : "";
 
             // skip if class doesn't exist

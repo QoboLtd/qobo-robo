@@ -180,7 +180,6 @@ class Dotenv
 
         $value = getenv($name);
         return $value === false ? null : $value;
-
     }
 
     protected static function setEnv($name, $value)

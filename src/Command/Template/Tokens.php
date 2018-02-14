@@ -46,7 +46,9 @@ class Tokens extends AbstractCommand
         }
 
         natsort($data['data']);
-        $data['data'] = array_map(function ($item) { return ['Token' => $item]; }, $data['data']);
+        $data['data'] = array_map(function ($item) {
+            return ['Token' => $item];
+        }, $data['data']);
         return new RowsOfFields($data['data']);
     }
 }

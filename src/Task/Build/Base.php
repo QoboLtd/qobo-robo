@@ -97,8 +97,10 @@ class Base extends \Qobo\Robo\AbstractCmdTask
         $this->data = (array_filter($this->data))
             ? array_merge(
                 $this->tasks[$this->taskKey],
-                array_filter($this->data, function ($item){ return ($item === null) ? false : true; })
-              )
+                array_filter($this->data, function ($item) {
+                    return ($item === null) ? false : true;
+                })
+            )
             : $this->tasks[$this->taskKey];
 
         return parent::run();

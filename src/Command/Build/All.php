@@ -11,7 +11,6 @@
  */
 namespace Qobo\Robo\Command\Build;
 
-
 class All extends \Qobo\Robo\AbstractCommand
 {
     /**

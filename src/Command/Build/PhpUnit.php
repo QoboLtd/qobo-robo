@@ -11,7 +11,6 @@
  */
 namespace Qobo\Robo\Command\Build;
 
-
 class PhpUnit extends \Qobo\Robo\AbstractCommand
 {
     /**

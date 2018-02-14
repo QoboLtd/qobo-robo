@@ -11,7 +11,6 @@
  */
 namespace Qobo\Robo\Command\Build;
 
-
 class PhpLoc extends \Qobo\Robo\AbstractCommand
 {
     /**

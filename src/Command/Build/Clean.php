@@ -11,7 +11,6 @@
  */
 namespace Qobo\Robo\Command\Build;
 
-
 class Clean extends \Qobo\Robo\AbstractCommand
 {
     /**
@@ -33,6 +32,5 @@ class Clean extends \Qobo\Robo\AbstractCommand
             $this->say("Cleaned <info>$dir</info>");
         }
         return true;
-
     }
 }

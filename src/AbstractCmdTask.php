@@ -73,9 +73,9 @@ abstract class AbstractCmdTask extends AbstractTask
             return $result;
         }
 
-		if (!is_array($this->data['path'])) {
-			$this->data['path'] = [ $this->data['path'] ];
-		}
+        if (!is_array($this->data['path'])) {
+            $this->data['path'] = [ $this->data['path'] ];
+        }
         // validate our cmd and paths
         try {
             static::checkCmd($this->data['cmd']);
@@ -104,7 +104,6 @@ abstract class AbstractCmdTask extends AbstractTask
             if ($data['status'] && $this->stopOnFail) {
                 return Result::error($this, "Last command failed to run", $this->data);
             }
-
         }
 
         return ($data['status'])
@@ -200,23 +199,22 @@ abstract class AbstractCmdTask extends AbstractTask
         // generate basic tokens
         $tokens = [];
         foreach ($this->tokenKeys as $key) {
-
-			// allow tokenKeys items to be array with prefix as the second
-			// array element, ex: ['user', '-u '], so that it will parse
-			// %%USER%% into '-u <$this->data['user']>', or
-			// ex: ['pass', '-p'] will replace %%PASS%% into -p<$this->data['pass']>
-			$prefix = "";
-			if (is_array($key)) {
-				$prefix = $key[1];
-				$key = $key[0];
-			}
+            // allow tokenKeys items to be array with prefix as the second
+            // array element, ex: ['user', '-u '], so that it will parse
+            // %%USER%% into '-u <$this->data['user']>', or
+            // ex: ['pass', '-p'] will replace %%PASS%% into -p<$this->data['pass']>
+            $prefix = "";
+            if (is_array($key)) {
+                $prefix = $key[1];
+                $key = $key[0];
+            }
 
             // skip if don't have data for the token available
             if (!isset($this->data[$key]) || $this->data[$key] === null) {
                 continue;
             }
 
-			$tokens[strtoupper($key)] = $prefix . escapeshellarg($this->data[$key]);
+            $tokens[strtoupper($key)] = $prefix . escapeshellarg($this->data[$key]);
         }
 
         // return a combined command for all paths if in batch mode

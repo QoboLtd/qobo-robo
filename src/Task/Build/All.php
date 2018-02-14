@@ -25,7 +25,6 @@ class All extends Base
 
         // iterate over all available tasks
         foreach ($this->tasks as $task => $data) {
-
             // skip commands with empty paths
             if (!isset($data['path']) || empty($data['path'])) {
                 continue;
@@ -33,7 +32,6 @@ class All extends Base
 
             // check all paths
             for ($idx = 0; $idx < count($data['path']); $idx++) {
-
                 // remove the path from list if not valid
                 try {
                     static::checkPath($data['path'][$idx]);
@@ -60,4 +58,3 @@ class All extends Base
         return Result::success($this, "All build commands passed", $finalResult);
     }
 }
-

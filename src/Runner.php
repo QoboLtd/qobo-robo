@@ -70,4 +70,3 @@ class Runner extends RoboRunner
         $this->selfUpdateRepository = $selfUpdateRepository;
     }
 }
-

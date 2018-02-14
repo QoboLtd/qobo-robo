@@ -11,7 +11,6 @@
  */
 namespace Qobo\Robo\Command\Build;
 
-
 class PhpMd extends \Qobo\Robo\AbstractCommand
 {
     /**

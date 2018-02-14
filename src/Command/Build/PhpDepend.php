@@ -11,7 +11,6 @@
  */
 namespace Qobo\Robo\Command\Build;
 
-
 class PhpDepend extends \Qobo\Robo\AbstractCommand
 {
     /**

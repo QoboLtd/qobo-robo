@@ -167,7 +167,7 @@ abstract class AbstractTask extends BaseTask
         // and in msg placeholders
         $data[$key] = $data['name'];
         unset($data['name']);
-        $msg = str_replace('{name}','{' . $key . '}', $msg);
+        $msg = str_replace('{name}', '{' . $key . '}', $msg);
 
         // print nice message
         $result = $this->printTaskInfo($msg, $data);

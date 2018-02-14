@@ -99,7 +99,6 @@ class Template
 
         // replace unknown tokens with empty string if FLAG_EMPTY_MISSING
         if ($flags & self::FLAG_EMPTY_MISSING) {
-
             $tokens = [];
             foreach ($remainingTokens as $token) {
                 $tokens[$token] = "";

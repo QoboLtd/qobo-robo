@@ -32,7 +32,9 @@ class PropertyList extends \Consolidation\OutputFormatters\StructuredData\Proper
         }
 
         return implode("\n", array_map(
-            function ($k, $v) { return "$k: " . $this->flatten($v); },
+            function ($k, $v) {
+                return "$k: " . $this->flatten($v);
+            },
             array_keys($data),
             array_values($data)
         ));
@@ -40,7 +42,9 @@ class PropertyList extends \Consolidation\OutputFormatters\StructuredData\Proper
 
     protected function isAssoc($arr)
     {
-        if (array() === $arr) return false;
+        if (array() === $arr) {
+            return false;
+        }
         return array_keys($arr) !== range(0, count($arr) - 1);
     }
 }

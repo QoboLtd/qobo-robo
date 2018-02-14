@@ -69,7 +69,9 @@ class File
         }
 
         // make sure every line has only one newline at the end
-        $lines = array_map(function ($line) { return rtrim($line); }, $lines);
+        $lines = array_map(function ($line) {
+            return rtrim($line);
+        }, $lines);
 
         $bytes = file_put_contents($path, implode("\n", $lines));
         if ($bytes === false) {

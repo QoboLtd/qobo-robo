@@ -11,7 +11,6 @@
  */
 namespace Qobo\Robo\Command\Build;
 
-
 class PhpCs extends \Qobo\Robo\AbstractCommand
 {
     /**
