@@ -36,7 +36,7 @@ abstract class AbstractTask extends BaseTask
     /**
      * @var bool $stopOnFail Flag on whether to stop on any fails
      */
-    protected $stopOnFail = false;
+    protected $stopOnFail = true;
 
     /**
      * @var string $configPrefix Config path prefix

@@ -181,12 +181,13 @@ abstract class AbstractCmdTask extends AbstractTask
 
     protected function runCmd($cmd)
     {
-        $data = [
-            'message'   => null,
-            'output'    => [],
-            'status'    => null
-        ];
-        $data['message'] = exec($cmd, $data['output'], $data['status']);
+        $output = null;
+        $status = null;
+        $data = [];
+        $data['message'] = exec($cmd, $output, $status);
+
+        $data['output'] = $output;
+        $data['status'] = $status;
 
         return $data;
     }
