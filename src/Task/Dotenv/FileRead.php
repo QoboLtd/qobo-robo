@@ -66,7 +66,7 @@ class FileRead extends AbstractTask
 
         try {
             $content = File::read($this->data['path']);
-            $this->data['data'] = Dotenv::parse($content, Dotenv::FLAG_STRICT);
+            $this->data['data'] = Dotenv::parse($content, [], Dotenv::FLAG_STRICT);
         } catch (Exception $e) {
             return Result::fromException($this, $e);
         }
