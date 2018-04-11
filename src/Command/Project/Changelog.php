@@ -19,7 +19,7 @@ class Changelog extends AbstractCommand
     /**
      * Get project changelog
      *
-     * @return string changelog
+     * @return \Qobo\Robo\Formatter\RowsOfFields
      */
     public function projectChangelog($opts = ['format' => 'table', 'fields' => ''])
     {

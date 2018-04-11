@@ -19,7 +19,7 @@ class Branch extends AbstractCommand
     /**
      * Get current project branch
      *
-     * @return string branch
+     * @return \Qobo\Robo\Formatter\PropertyList
      */
     public function projectBranch($opts = ['format' => 'table', 'fields' => ''])
     {

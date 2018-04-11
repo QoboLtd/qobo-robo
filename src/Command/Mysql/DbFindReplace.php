@@ -29,7 +29,7 @@ class DbFindReplace extends AbstractCommand
      * @option string $format Output format (table, list, csv, json, xml)
      * @option string $fields Limit output to given fields, comma-separated
      *
-     * @return PropertyList result
+     * @return bool
      */
     public function mysqlDbFindReplace(
         $search,

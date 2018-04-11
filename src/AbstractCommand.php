@@ -49,7 +49,7 @@ abstract class AbstractCommand extends Tasks
      * @param string $method Method name that was called
      * @param array $args Arguments that were passed to the method
      *
-     * @return
+     * @return mixed
      */
     public function __call($method, $args = null)
     {
