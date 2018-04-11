@@ -11,6 +11,10 @@
         "phpunit/phpunit": "*",
         "squizlabs/php_codesniffer": "*"
     },
+    "suggest": {
+        "qobo/qobo-robo-build": "Build related tasks and comamnds for Qobo Robo",
+        "qobo/qobo-robo-cakephp": "CakePHP related tasks and commands for Qobo Robo"
+    },
     "autoload": {
         "psr-4": {
             "Qobo\\Robo\\": "src"
