@@ -13,9 +13,9 @@ namespace Qobo\Robo\Formatter;
 
 use Qobo\Robo\Utility\Hash;
 use Consolidation\OutputFormatters\Options\FormatterOptions;
-use Consolidation\OutputFormatters\StructuredData\RowsOfFields;
+use Consolidation\OutputFormatters\StructuredData\RowsOfFields as RoboRowsOfFields;
 
-class RowsOfFields extends RowsOfFields
+class RowsOfFields extends RoboRowsOfFields
 {
     public function renderCell($key, $cellData, FormatterOptions $options, $rowData)
     {
