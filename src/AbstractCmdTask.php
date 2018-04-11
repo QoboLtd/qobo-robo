@@ -92,6 +92,7 @@ abstract class AbstractCmdTask extends AbstractTask
         $cmds = $this->getCommands();
 
         $this->data['data'] = [];
+        $data = [];
         foreach ($cmds as $cmd) {
             $output = $cmd;
             foreach ($this->hiddenOutput as $str) {
