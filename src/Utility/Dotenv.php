@@ -11,6 +11,9 @@
  */
 namespace Qobo\Robo\Utility;
 
+use InvalidArgumentException;
+use RuntimeException;
+
 /**
  * Dotenv utilities collection class
  */
@@ -58,7 +61,7 @@ class Dotenv
 
         // FLAG_REPLACE_DUPLICATES and FLAG_STRICT are mutually exclusive
         if (($flags & static::FLAG_REPLACE_DUPLICATES) &&  ($flags & static::FLAG_STRICT)) {
-            throw new \InvalidArgumentException("Can't use FLAG_REPLACE_DUPLICATES and FLAG_STRICT together");
+            throw new InvalidArgumentException("Can't use FLAG_REPLACE_DUPLICATES and FLAG_STRICT together");
         }
 
         foreach ($dotenv as $line) {
@@ -89,7 +92,7 @@ class Dotenv
             }
 
             if ($flags & static::FLAG_STRICT) {
-                throw new \RuntimeException("Duplicate value found for variable '$name'");
+                throw new RuntimeException("Duplicate value found for variable '$name'");
             }
         }
 
@@ -104,7 +107,7 @@ class Dotenv
 
         foreach ($dotenv as $name => $value) {
             if (static::findEnv($name) && ($flags & static::FLAG_STRICT)) {
-                throw new \RuntimeException("Environment variable '$name' already present");
+                throw new RuntimeException("Environment variable '$name' already present");
             }
             static::setEnv($name, $value);
         }

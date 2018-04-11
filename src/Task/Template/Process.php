@@ -11,9 +11,11 @@
  */
 namespace Qobo\Robo\Task\Template;
 
-use Robo\Result;
+use Exception;
+use Qobo\Robo\AbstractTask;
 use Qobo\Robo\Utility\File;
 use Qobo\Robo\Utility\Template;
+use Robo\Result;
 
 /**
  * Parse template file
@@ -39,7 +41,7 @@ use Qobo\Robo\Utility\Template;
  * ?>
  * ```
  */
-class Process extends \Qobo\Robo\AbstractTask
+class Process extends AbstractTask
 {
     /**
      * {@inheritdoc}
@@ -98,7 +100,7 @@ class Process extends \Qobo\Robo\AbstractTask
                 $this->data['post']
             );
             File::write($this->data['dst'], $this->data['data']);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return Result::fromException($this, $e);
         }
 

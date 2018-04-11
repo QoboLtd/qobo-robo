@@ -44,7 +44,7 @@ class Process extends AbstractCommand
             ->src($src)
             ->dst($dst)
             ->wrap('%%')
-            ->tokens($tokens)
+            ->tokens($data['data'])
             ->run();
 
         if (!$result->wasSuccessful()) {

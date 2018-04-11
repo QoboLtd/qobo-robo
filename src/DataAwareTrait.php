@@ -12,6 +12,7 @@
 namespace Qobo\Robo;
 
 use Robo\Result;
+use RuntimeException;
 
 /**
  * Data aware trait
@@ -28,7 +29,7 @@ trait DataAwareTrait
     public function setData($name, $value)
     {
         if (!isset($this->data)) {
-            throw new \RuntimeException("Data property is required for DataAwareTrait to work");
+            throw new RuntimeException("Data property is required for DataAwareTrait to work");
         }
 
         // we use snake_case field keys
@@ -51,10 +52,10 @@ trait DataAwareTrait
     protected function checkRequiredData()
     {
         if (!isset($this->data)) {
-            throw new \RuntimeException("'data' property is required for DataAwareTrait to work");
+            throw new RuntimeException("'data' property is required for DataAwareTrait to work");
         }
         if (!isset($this->requiredData)) {
-            throw new \RuntimeException("'requiredData' property is required for DataAwareTrait to work");
+            throw new RuntimeException("'requiredData' property is required for DataAwareTrait to work");
         }
 
         $missing = [];
@@ -68,7 +69,7 @@ trait DataAwareTrait
             return true;
         }
 
-        throw new \RuntimeException(
+        throw new RuntimeException(
             sprintf("Missing required data field(s) [%s]", implode(",", array_map([$this,"camelize"], $missing)))
         );
     }

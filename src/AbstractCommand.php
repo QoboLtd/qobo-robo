@@ -19,8 +19,10 @@
 namespace Qobo\Robo;
 
 use Robo\Common\ConfigAwareTrait as configTrait;
+use Robo\Tasks;
+use RuntimeException;
 
-abstract class AbstractCommand extends \Robo\Tasks
+abstract class AbstractCommand extends Tasks
 {
     use configTrait;
 
@@ -47,18 +49,18 @@ abstract class AbstractCommand extends \Robo\Tasks
      * @param string $method Method name that was called
      * @param array $args Arguments that were passed to the method
      *
-     * @return
+     * @return mixed
      */
     public function __call($method, $args = null)
     {
         if (preg_match($this->taskRegex, $method, $matches)) {
             $className = __NAMESPACE__ . "\\" . $this->taskDir . "\\" . $matches[1] . "\\" . $matches[2];
             if (!class_exists($className)) {
-                throw new \RuntimeException("Failed to find class '$className' for '$method' task");
+                throw new RuntimeException("Failed to find class '$className' for '$method' task");
             }
             return $this->task($className, $args);
         }
-        throw new \RuntimeException("Called to undefined method '$method' of '" . get_called_class() . "'");
+        throw new RuntimeException("Called to undefined method '$method' of '" . get_called_class() . "'");
     }
 
     /**
@@ -69,6 +71,6 @@ abstract class AbstractCommand extends \Robo\Tasks
      */
     protected function exitError($message, $errorCode = 1)
     {
-        throw new \RuntimeException($message, $errorCode);
+        throw new RuntimeException($message, $errorCode);
     }
 }

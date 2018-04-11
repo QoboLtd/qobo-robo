@@ -11,6 +11,9 @@
  */
 namespace Qobo\Robo\Utility;
 
+use InvalidArgumentException;
+use RuntimeException;
+
 /**
  * Template utilities collection class
  */
@@ -58,8 +61,13 @@ class Template
      *
      * @return string Parsed template
      */
-    public static function parse($template, array $tokens, $pre = '%%', $post = '%%', $flags = self::FLAG_RECURSIVE | self::FLAG_STRICT)
-    {
+    public static function parse(
+        $template,
+        array $tokens,
+        $pre = '%%',
+        $post = '%%',
+        $flags = self::FLAG_RECURSIVE | self::FLAG_STRICT
+    ) {
         // nothing to do with empty templates or when no tokens given
         if (empty($template) || empty($tokens)) {
             return $template;
@@ -67,7 +75,7 @@ class Template
 
         // FLAG_EMPTY_MISSING and FLAG_STRICT are mutually exclusive
         if (($flags & self::FLAG_EMPTY_MISSING) &&  ($flags & self::FLAG_STRICT)) {
-            throw new \InvalidArgumentException("Can't use FLAG_EMPTY_MISSING and FLAG_STRICT together");
+            throw new InvalidArgumentException("Can't use FLAG_EMPTY_MISSING and FLAG_STRICT together");
         }
 
         // replace the tokens with their values
@@ -94,7 +102,7 @@ class Template
 
         // throw exception if in strict mode
         if ($flags & self::FLAG_STRICT) {
-            throw new \RuntimeException("Missing values for [" . implode(", ", $remainingTokens) . "] tokens");
+            throw new RuntimeException("Missing values for [" . implode(", ", $remainingTokens) . "] tokens");
         }
 
         // replace unknown tokens with empty string if FLAG_EMPTY_MISSING

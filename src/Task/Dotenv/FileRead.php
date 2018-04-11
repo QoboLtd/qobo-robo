@@ -11,9 +11,11 @@
  */
 namespace Qobo\Robo\Task\Dotenv;
 
-use Robo\Result;
+use Exception;
+use Qobo\Robo\AbstractTask;
 use Qobo\Robo\Utility\File;
 use Qobo\Robo\Utility\Dotenv;
+use Robo\Result;
 
 /**
  * Read dotenv file
@@ -26,7 +28,7 @@ use Qobo\Robo\Utility\Dotenv;
  * ?>
  * ```
  */
-class FileRead extends \Qobo\Robo\AbstractTask
+class FileRead extends AbstractTask
 {
     /**
      * {@inheritdoc}
@@ -64,8 +66,8 @@ class FileRead extends \Qobo\Robo\AbstractTask
 
         try {
             $content = File::read($this->data['path']);
-            $this->data['data'] = Dotenv::parse($content, Dotenv::FLAG_STRICT);
-        } catch (\Exception $e) {
+            $this->data['data'] = Dotenv::parse($content, [], Dotenv::FLAG_STRICT);
+        } catch (Exception $e) {
             return Result::fromException($this, $e);
         }
 

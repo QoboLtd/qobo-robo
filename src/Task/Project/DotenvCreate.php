@@ -11,9 +11,11 @@
  */
 namespace Qobo\Robo\Task\Project;
 
-use Robo\Result;
+use Exception;
+use Qobo\Robo\AbstractTask;
 use Qobo\Robo\Utility\File;
 use Qobo\Robo\Utility\Dotenv;
+use Robo\Result;
 
 /**
  * Current project branch
@@ -28,7 +30,7 @@ use Qobo\Robo\Utility\Dotenv;
  * ?>
  * ```
  */
-class DotenvCreate extends \Qobo\Robo\AbstractTask
+class DotenvCreate extends AbstractTask
 {
     /**
      * {@inheritdoc}
@@ -89,7 +91,7 @@ class DotenvCreate extends \Qobo\Robo\AbstractTask
                     array_values($env)
                 )
             );
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return Result::fromException($this, $e);
         }
         $this->data['data'] = $env;

@@ -11,6 +11,8 @@
  */
 namespace Qobo\Robo\Task\File;
 
+use Exception;
+use Qobo\Robo\AbstractTask;
 use Robo\Result;
 
 /**
@@ -28,7 +30,7 @@ use Robo\Result;
  * ?>
  * ```
  */
-class Chmod extends \Qobo\Robo\AbstractTask
+class Chmod extends AbstractTask
 {
 
     /**
@@ -55,11 +57,16 @@ class Chmod extends \Qobo\Robo\AbstractTask
      */
     public function run()
     {
+        $result = false;
+
         if (!is_array($this->data['path'])) {
             $this->data['path'] = [ $this->data['path'] ];
         }
         foreach ($this->data['path'] as $path) {
-            $this->printInfo("Changing mode on {path} (dir: {dir_mode}, file: {file_mode})", ['path' => $path, 'dir_mode' => $this->data['dir_mode'], 'file_mode' => $this->data['file_mode']]);
+            $this->printInfo(
+                "Changing mode on {path} (dir: {dir_mode}, file: {file_mode})",
+                ['path' => $path, 'dir_mode' => $this->data['dir_mode'], 'file_mode' => $this->data['file_mode']]
+            );
             $result = static::chmod($path, $this->data['file_mode'], $this->data['dir_mode'], $this->data['recursive']);
         }
 
@@ -84,7 +91,7 @@ class Chmod extends \Qobo\Robo\AbstractTask
             }
 
             chmod($path, $dirMode);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return false;
         }
 

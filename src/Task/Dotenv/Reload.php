@@ -11,9 +11,11 @@
  */
 namespace Qobo\Robo\Task\Dotenv;
 
-use Robo\Result;
+use Exception;
+use Qobo\Robo\AbstractTask;
 use Qobo\Robo\Utility\File;
 use Qobo\Robo\Utility\Dotenv;
+use Robo\Result;
 
 /**
  * Reload environment from dotenv file
@@ -26,7 +28,7 @@ use Qobo\Robo\Utility\Dotenv;
  * ?>
  * ```
  */
-class Reload extends \Qobo\Robo\AbstractTask
+class Reload extends AbstractTask
 {
     /**
      * {@inheritdoc}
@@ -58,7 +60,7 @@ class Reload extends \Qobo\Robo\AbstractTask
             $content = File::readLines($this->data['path']);
             $dotenv = Dotenv::parse($content);
             $this->data['data'] = Dotenv::apply($dotenv, [], Dotenv::FLAG_REPLACE_DUPLICATES);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return Result::fromException($this, $e);
         }
 

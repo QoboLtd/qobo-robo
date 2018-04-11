@@ -11,7 +11,9 @@
  */
 namespace Qobo\Robo\Task\Mysql;
 
-class DbFindReplace extends \Qobo\Robo\AbstractCmdTask
+use Qobo\Robo\AbstractCmdTask;
+
+class DbFindReplace extends AbstractCmdTask
 {
     /**
      * {@inheritdoc}
