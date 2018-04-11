@@ -13,8 +13,9 @@ namespace Qobo\Robo\Formatter;
 
 use Qobo\Robo\Utility\Hash;
 use Consolidation\OutputFormatters\Options\FormatterOptions;
+use Consolidation\OutputFormatters\StructuredData\PropertyList;
 
-class PropertyList extends \Consolidation\OutputFormatters\StructuredData\PropertyList
+class PropertyList extends PropertyList
 {
     public function renderCell($key, $cellData, FormatterOptions $options, $rowData)
     {

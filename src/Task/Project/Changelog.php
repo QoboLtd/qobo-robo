@@ -11,6 +11,7 @@
  */
 namespace Qobo\Robo\Task\Project;
 
+use Qobo\Robo\AbstractCmdTask;
 use Robo\Result;
 
 /**
@@ -25,7 +26,7 @@ use Robo\Result;
  * ?>
  * ```
  */
-class Changelog extends \Qobo\Robo\AbstractCmdTask
+class Changelog extends AbstractCmdTask
 {
     /**
      * {@inheritdoc}

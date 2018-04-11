@@ -11,6 +11,8 @@
  */
 namespace Qobo\Robo;
 
+use Exception;
+use InvalidArgumentException;
 use Robo\Result;
 use Robo\Exception\TaskException;
 use Qobo\Robo\Utility\Template;
@@ -82,7 +84,7 @@ abstract class AbstractCmdTask extends AbstractTask
             foreach ($this->data['path'] as $path) {
                 static::checkPath($path);
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return Result::fromException($this, $e);
         }
 
@@ -127,18 +129,18 @@ abstract class AbstractCmdTask extends AbstractTask
     public static function checkPath($path)
     {
         if (!is_string($path)) {
-            throw new \InvalidArgumentException(sprintf("String expected as path, got '%s' instead", gettype($path)));
+            throw new InvalidArgumentException(sprintf("String expected as path, got '%s' instead", gettype($path)));
         }
         if (!file_exists($path)) {
-            throw new \InvalidArgumentException(sprintf("'%s' does not exist", $path));
+            throw new InvalidArgumentException(sprintf("'%s' does not exist", $path));
         }
 
         if (!is_dir($path)) {
-            throw new \InvalidArgumentException(sprintf("'%s' is not a directory", $path));
+            throw new InvalidArgumentException(sprintf("'%s' is not a directory", $path));
         }
 
         if (!is_readable($path)) {
-            throw new \InvalidArgumentException(sprintf("'%s' is not readable", $path));
+            throw new InvalidArgumentException(sprintf("'%s' is not readable", $path));
         }
 
         return true;
@@ -160,20 +162,20 @@ abstract class AbstractCmdTask extends AbstractTask
             $ouput = [];
             $fullCmd = exec("which $cmd", $output, $retval);
             if ($retval) {
-                throw new \InvalidArgumentException(sprintf("Failed to find full path for '%s'", $cmd));
+                throw new InvalidArgumentException(sprintf("Failed to find full path for '%s'", $cmd));
             }
             $cmd = trim($fullCmd);
         }
 
         if (!file_exists($cmd)) {
-            throw new \InvalidArgumentException(sprintf("'%s' does not exist", $cmd));
+            throw new InvalidArgumentException(sprintf("'%s' does not exist", $cmd));
         }
 
         if (!is_file($cmd)) {
-            throw new \InvalidArgumentException(sprintf("'%s' is not a file", $cmd));
+            throw new InvalidArgumentException(sprintf("'%s' is not a file", $cmd));
         }
         if (!is_executable($cmd)) {
-            throw new \InvalidArgumentException(sprintf("'%s' is not executable", $cmd));
+            throw new InvalidArgumentException(sprintf("'%s' is not executable", $cmd));
         }
 
         return true;

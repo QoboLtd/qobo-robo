@@ -11,6 +11,8 @@
  */
 namespace Qobo\Robo\Utility;
 
+use RuntimeException;
+
 /**
  * File utilities collection class
  */
@@ -27,7 +29,7 @@ class File
     public static function readLines($path, $skipEmpty = false)
     {
         if (!is_file($path) || !is_readable($path)) {
-            throw new \RuntimeException("File '$path' doesn't exist or is not a readable file");
+            throw new RuntimeException("File '$path' doesn't exist or is not a readable file");
         }
 
 
@@ -36,7 +38,7 @@ class File
             : file($path, FILE_IGNORE_NEW_LINES);
 
         if ($lines === false) {
-            throw new \RuntimeException("Something went wrong while reading '$path' file content");
+            throw new RuntimeException("Something went wrong while reading '$path' file content");
         }
 
         return $lines;
@@ -65,7 +67,7 @@ class File
     public static function writeLines($path, $lines)
     {
         if (is_file($path) && !is_writable($path)) {
-            throw new \RuntimeException("File '$path' is not a writable file");
+            throw new RuntimeException("File '$path' is not a writable file");
         }
 
         // make sure every line has only one newline at the end
@@ -75,7 +77,7 @@ class File
 
         $bytes = file_put_contents($path, implode("\n", $lines));
         if ($bytes === false) {
-            throw new \RuntimeException("Something went wrong while writing content to '$path'");
+            throw new RuntimeException("Something went wrong while writing content to '$path'");
         }
 
         return true;

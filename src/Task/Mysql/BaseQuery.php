@@ -11,13 +11,14 @@
  */
 namespace Qobo\Robo\Task\Mysql;
 
-use Robo\Result;
+use Qobo\Robo\AbstractCmdTask;
 use Qobo\Robo\Utility\Template;
+use Robo\Result;
 
 /**
  * Base Query Mysql class
  */
-class BaseQuery extends \Qobo\Robo\AbstractCmdTask
+class BaseQuery extends AbstractCmdTask
 {
     /**
      * {@inheritdoc}

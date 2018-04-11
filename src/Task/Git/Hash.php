@@ -11,6 +11,7 @@
  */
 namespace Qobo\Robo\Task\Git;
 
+use Qobo\Robo\AbstractCmdTask;
 use Robo\Result;
 
 /**
@@ -24,7 +25,7 @@ use Robo\Result;
  * ?>
  * ```
  */
-class Hash extends \Qobo\Robo\AbstractCmdTask
+class Hash extends AbstractCmdTask
 {
     /**
      * {@inheritdoc}

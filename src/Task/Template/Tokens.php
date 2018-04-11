@@ -11,6 +11,7 @@
  */
 namespace Qobo\Robo\Task\Template;
 
+use Exception;
 use Robo\Result;
 use Qobo\Robo\Utility\File;
 use Qobo\Robo\Utility\Template;
@@ -85,7 +86,7 @@ class Tokens extends \Qobo\Robo\AbstractTask
         try {
             $template = File::read($this->data['path']);
             $this->data['data'] = Template::getTokens($template, $this->data['pre'], $this->data['post']);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return Result::fromException($this, $e);
         }
 

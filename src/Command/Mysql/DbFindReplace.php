@@ -31,8 +31,16 @@ class DbFindReplace extends AbstractCommand
      *
      * @return PropertyList result
      */
-    public function mysqlDbFindReplace($search, $replace, $db, $user = 'root', $pass = '', $host = 'localhost', $port = null, $opts = ['format' => 'table', 'fields' => ''])
-    {
+    public function mysqlDbFindReplace(
+        $search,
+        $replace,
+        $db,
+        $user = 'root',
+        $pass = '',
+        $host = 'localhost',
+        $port = null,
+        $opts = ['format' => 'table', 'fields' => '']
+    ) {
         $result = $this->taskMysqlDbFindReplace()
             ->search($search)
             ->replace($replace)

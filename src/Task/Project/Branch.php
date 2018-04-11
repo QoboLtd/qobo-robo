@@ -11,6 +11,7 @@
  */
 namespace Qobo\Robo\Task\Project;
 
+use Qobo\Robo\AbstractCmdTask;
 use Robo\Result;
 
 /**
@@ -24,7 +25,7 @@ use Robo\Result;
  * ?>
  * ```
  */
-class Branch extends \Qobo\Robo\AbstractCmdTask
+class Branch extends AbstractCmdTask
 {
     /**
      * {@inheritdoc}

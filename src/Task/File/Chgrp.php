@@ -11,6 +11,7 @@
  */
 namespace Qobo\Robo\Task\File;
 
+use Qobo\Robo\AbstractTask;
 use Robo\Result;
 
 /**
@@ -27,7 +28,7 @@ use Robo\Result;
  * ?>
  * ```
  */
-class Chgrp extends \Qobo\Robo\AbstractTask
+class Chgrp extends AbstractTask
 {
     /**
      * {@inheritdoc}
@@ -55,7 +56,10 @@ class Chgrp extends \Qobo\Robo\AbstractTask
             $this->data['path'] = [ $this->data['path'] ];
         }
         foreach ($this->data['path'] as $path) {
-            $this->printInfo("Changing user group ownership on {path} to {group}", ['path' => $path, 'group' => $this->data['group']]);
+            $this->printInfo(
+                "Changing user group ownership on {path} to {group}",
+                ['path' => $path, 'group' => $this->data['group']]
+            );
             $result = static::chgrp($path, $this->data['group'], $this->data['recursive']);
         }
 

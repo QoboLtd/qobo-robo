@@ -29,8 +29,12 @@ class DotenvCreate extends AbstractCommand
      * @return PropertyList
      *
      */
-    public function projectDotenvCreate($envPath = '.env', $templatePath = '.env.example', $env = '', $opts = ['format' => 'table', 'fields' => ''])
-    {
+    public function projectDotenvCreate(
+        $envPath = '.env',
+        $templatePath = '.env.example',
+        $env = '',
+        $opts = ['format' => 'table', 'fields' => '']
+    ) {
         $task = $this->taskProjectDotenvCreate()
             ->env($envPath)
             ->template($templatePath);

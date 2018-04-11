@@ -12,6 +12,7 @@
 namespace Qobo\Robo;
 
 use Robo\Runner as RoboRunner;
+use RuntimeException;
 
 /**
  * Robo Runner to allow custom error handler
@@ -41,7 +42,7 @@ class Runner extends RoboRunner
         $this->lastErrno = $errno;
 
         // throw the exception
-        throw new \RuntimeException($msg, $errno);
+        throw new RuntimeException($msg, $errno);
     }
 
     public function installRoboHandlers()

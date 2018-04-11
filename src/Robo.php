@@ -11,6 +11,7 @@
  */
 namespace Qobo\Robo;
 
+use Qobo\Robo\Runner;
 use Robo\Robo as RoboRobo;
 
 /**
@@ -19,10 +20,16 @@ use Robo\Robo as RoboRobo;
 class Robo extends RoboRobo
 {
 
-    public static function run($argv, $commandClasses, $appName = null, $appVersion = null, $output = null, $repository = null)
-    {
+    public static function run(
+        $argv,
+        $commandClasses,
+        $appName = null,
+        $appVersion = null,
+        $output = null,
+        $repository = null
+    ) {
         // This line is the whole idea of the class
-        $runner = new \Qobo\Robo\Runner($commandClasses);
+        $runner = new Runner($commandClasses);
 
 
         $runner->setSelfUpdateRepository($repository);

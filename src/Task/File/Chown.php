@@ -11,6 +11,7 @@
  */
 namespace Qobo\Robo\Task\File;
 
+use Qobo\Robo\AbstractTask;
 use Robo\Result;
 
 /**
@@ -27,7 +28,7 @@ use Robo\Result;
  * ?>
  * ```
  */
-class Chown extends \Qobo\Robo\AbstractTask
+class Chown extends AbstractTask
 {
     /**
      * {@inheritdoc}
@@ -55,7 +56,10 @@ class Chown extends \Qobo\Robo\AbstractTask
             $this->data['path'] = [ $this->data['path'] ];
         }
         foreach ($this->data['path'] as $path) {
-            $this->printInfo("Changing user ownership on {path} to {user}", ['path' => $path, 'user' => $this->data['user']]);
+            $this->printInfo(
+                "Changing user ownership on {path} to {user}",
+                ['path' => $path, 'user' => $this->data['user']]
+            );
             $result = static::chown($path, $this->data['user'], $this->data['recursive']);
         }
 

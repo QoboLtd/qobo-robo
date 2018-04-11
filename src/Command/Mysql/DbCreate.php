@@ -29,8 +29,14 @@ class DbCreate extends AbstractCommand
      *
      * @return PropertyList result
      */
-    public function mysqlDbCreate($db, $user = 'root', $pass = null, $host = null, $port = null, $opts = ['format' => 'table', 'fields' => ''])
-    {
+    public function mysqlDbCreate(
+        $db,
+        $user = 'root',
+        $pass = null,
+        $host = null,
+        $port = null,
+        $opts = ['format' => 'table', 'fields' => '']
+    ) {
         $result = $this->taskMysqlDbCreate()
             ->db($db)
             ->user($user)
