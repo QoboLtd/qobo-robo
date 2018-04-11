@@ -5,14 +5,15 @@
     "require": {
         "consolidation/robo": "^1.1",
         "qobo/search-replace-db": "~4.0",
-        "symfony/filesystem": "~2.7",
-        "phpunit/phpunit": "~5.3",
-        "squizlabs/php_codesniffer": "*",
-        "pdepend/pdepend": "*",
-        "phploc/phploc": "*",
-        "phpmd/phpmd": "*",
-        "sebastian/phpcpd": "*",
-        "sami/sami": "~3.2"
+        "symfony/filesystem": "~2.7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "squizlabs/php_codesniffer": "*"
+    },
+    "suggest": {
+        "qobo/qobo-robo-build": "Build related tasks and comamnds for Qobo Robo",
+        "qobo/qobo-robo-cakephp": "CakePHP related tasks and commands for Qobo Robo"
     },
     "autoload": {
         "psr-4": {
