@@ -32,7 +32,7 @@ class DotenvReload extends AbstractCommand
             ->path($envPath)
             ->run();
 
-        if ($result->wasSuccessful()) {
+        if (!$result->wasSuccessful()) {
             $this->exitError("Failed to run command");
         }
 

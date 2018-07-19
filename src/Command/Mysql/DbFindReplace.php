@@ -52,7 +52,7 @@ class DbFindReplace extends AbstractCommand
             ->hide($pass)
             ->run();
 
-        if ($result->wasSuccessful()) {
+        if (!$result->wasSuccessful()) {
             $this->exitError("Failed to run command");
         }
 

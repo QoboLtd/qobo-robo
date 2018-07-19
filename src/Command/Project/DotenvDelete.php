@@ -37,7 +37,7 @@ class DotenvDelete extends AbstractCommand
             ->remove($envPath)
             ->run();
 
-        if ($result->wasSuccessful()) {
+        if (!$result->wasSuccessful()) {
             $this->exitError("Failed to run command");
         }
 
