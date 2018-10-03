@@ -19,7 +19,28 @@ use RuntimeException;
  */
 class Runner extends RoboRunner
 {
-    private $lastErrno = null;
+    private static $lastErrno = null;
+
+    /**
+     * Last error setter
+     *
+     * @param int $errNo Error code
+     * @return void
+     */
+    public static function setLastError($errNo)
+    {
+        static::$lastErrno = $errNo;
+    }
+
+    /**
+     * Last error getter
+     *
+     * @return int
+     */
+    public static function getLastError()
+    {
+        return static::$lastErrno;
+    }
 
     /**
      * Custom error handler that will throw an exception on any errors
@@ -39,7 +60,7 @@ class Runner extends RoboRunner
             $msg .= " [$file]";
         }
 
-        $this->lastErrno = $errno;
+        static::$lastErrno = $errno;
 
         // throw the exception
         throw new RuntimeException($msg, $errno);
@@ -58,7 +79,7 @@ class Runner extends RoboRunner
 
     public function shutdown()
     {
-        exit($this->lastErrno);
+        exit(static::$lastErrno);
     }
 
     /**
