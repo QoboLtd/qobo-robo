@@ -4,8 +4,7 @@
     "license": "MIT",
     "require": {
         "consolidation/robo": "^1.1",
-        "qobo/search-replace-db": "~4.0",
-        "symfony/filesystem": "~2.7"
+        "qobo/search-replace-db": "^4.0"
     },
     "require-dev": {
         "phpunit/phpunit": "*",
